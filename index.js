@@ -3,7 +3,7 @@
 var path = require('path');
 var webpack = require('webpack');
 
-var main = require.main || module.parent;
+var main = module.parent;
 var projectRoot = main ? path.dirname(main.filename) : __dirname;
 
 var root = path.resolve(projectRoot, 'src', 'main', 'js');
