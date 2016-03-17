@@ -1,10 +1,10 @@
 {
   "name": "nti-unittesting-clientside",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Common configuration for client side javascript unittesting",
   "main": "index.js",
   "files": [
-      "index.js"
+    "index.js"
   ],
   "scripts": {
     "test": "karma start --single-run --reporters dots,html,junit,coverage"
