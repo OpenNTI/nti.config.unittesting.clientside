@@ -83,7 +83,7 @@ module.exports = exports = {
 
 	webpack: {
 		cache: true,
-		debug: false,
+		devtool: 'inline-source-map',
 
 		node: {
 			crypto: 'empty',
