@@ -60,7 +60,7 @@ module.exports = exports = {
 
 
 	webpackServer: {
-		noInfo: true,
+		noInfo: false,
 		stats: {
 			version: false,
 			hash: false,
@@ -82,9 +82,6 @@ module.exports = exports = {
 	},
 
 	webpack: {
-		cache: true,
-		devtool: 'inline-source-map',
-
 		node: {
 			crypto: 'empty',
 			net: 'empty',
@@ -105,6 +102,7 @@ module.exports = exports = {
 				{
 					test: /\.jsx?$/,
 					loader: 'isparta-instrumenter',
+					include: root,
 					exclude: [
 						/node_modules/,
 						/__test__/,
