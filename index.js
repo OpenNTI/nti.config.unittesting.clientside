@@ -90,7 +90,7 @@ module.exports = exports = {
 
 		resolve: {
 			root: [root, modules],
-			extensions: ['', '.jsx', '.js', '.css', '.scss', '.html']
+			extensions: ['', '.async.jsx', '.jsx', '.js', '.css', '.scss', '.html']
 		},
 
 		plugins: [
