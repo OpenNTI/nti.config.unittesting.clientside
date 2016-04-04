@@ -56,6 +56,8 @@ module.exports = exports = {
 	// other possible values: 'dots', 'progress', 'junit', 'html', 'coverage'
 	reporters: ['mocha'],
 	captureTimeout: 60000,
+	browserDisconnectTimeout : 100000,
+	browserNoActivityTimeout : 100000,
 	singleRun: true,
 
 
