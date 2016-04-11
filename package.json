@@ -8,7 +8,9 @@
     "progress.js"
   ],
   "scripts": {
-    "test": "karma start --single-run --reporters dots,html,junit,coverage"
+    "test": "karma start --single-run --reporters dots,html,junit,coverage",
+    "bump": "npm version",
+    "postbump": "git push --all; npm publish"
   },
   "repository": {
     "type": "git",
