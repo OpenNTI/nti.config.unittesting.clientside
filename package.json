@@ -10,7 +10,7 @@
   "scripts": {
     "test": "karma start --single-run --reporters dots,html,junit,coverage",
     "bump": "npm version",
-    "postbump": "git push --tags && npm publish"
+    "postbump": "git push && git push --tags && npm publish"
   },
   "repository": {
     "type": "git",
