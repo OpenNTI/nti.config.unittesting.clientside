@@ -27,7 +27,6 @@
   },
   "dependencies": {
     "babel-loader": "^6.2.4",
-    "enzyme": "^2.3.0",
     "isparta-instrumenter-loader": "^1.0.0",
     "jasmine-core": "^2.2.0",
     "json-loader": "^0.5.4",
