@@ -1,6 +1,6 @@
 {
   "name": "nti-unittesting-clientside",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Common configuration for client side javascript unittesting",
   "main": "index.js",
   "files": [
