@@ -100,20 +100,22 @@ module.exports = exports = {
 		],
 
 		module: {
-			preLoaders: [
-				{
-					test: /\.jsx?$/,
-					loader: 'isparta-instrumenter',
-					include: root,
-					exclude: [
-						/node_modules/,
-						/__test__/,
-						/test\//
-					]
-				}
-			],
 			loaders: [
-				{ test: /\.js(x?)$/i, loader: 'babel', exclude: /node_modules/ },
+				{
+					test: /\.js(x?)$/i,
+					loader: 'babel',
+					exclude: /node_modules/,
+					query: {
+						plugins: [
+							["istanbul", {
+								exclude: [
+									"node_modules",
+									"**/*.spec.js"
+								]
+							}]
+						]
+					}
+				},
 				{ test: /\.json$/, loader: 'json' },
 				{ test: /\.(html?|sass|s?css|ico|gif|png|jpg|eot|ttf|woff)$/, loader: 'null' }
 			]
