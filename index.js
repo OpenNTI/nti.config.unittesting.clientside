@@ -8,6 +8,7 @@ var projectRoot = main ? path.dirname(main.filename) : __dirname;
 
 var root = path.resolve(projectRoot, 'src', 'main', 'js');
 var modules = path.resolve(projectRoot, 'node_modules');
+var packageName = require(path.resolve(projectRoot, 'package.json')).name;
 
 module.exports = exports = {
 	basePath: '',
@@ -41,7 +42,7 @@ module.exports = exports = {
 	junitReporter: {
 		outputDir: 'reports/test-results/',
 		outputFile: 'index.xml',
-		suite: 'nti-web-mobile',
+		suite: packageName,
 		useBrowserName: false
 	},
 
