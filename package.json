@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://repos.nextthought.com/git/nti.config.unittesting.clientside"
+    "url": "https://github.com/NextThought/nti.config.unittesting.clientside.git"
   },
   "keywords": [
     "unit",
