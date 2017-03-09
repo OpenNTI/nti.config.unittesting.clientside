@@ -1,7 +1,7 @@
 const baseConfig = require('./index');
 
 module.exports = function (config) {
-	baseConfig.webpack.resolve.root = void 0;
+	baseConfig.webpack.resolve.modules = void 0;
 
 	config.set(Object.assign(baseConfig, {
 		files: [

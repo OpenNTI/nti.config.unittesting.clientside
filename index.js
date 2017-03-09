@@ -2,6 +2,7 @@
 'use strict';
 var path = require('path');
 var webpack = require('webpack');
+var webpack1 = /^1/.test(require('webpack/package.json').version);
 
 var main = module.parent;
 var projectRoot = main ? path.dirname(main.filename) : __dirname;
@@ -85,6 +86,7 @@ module.exports = exports = {
 	},
 
 	webpack: {
+		entry: () => ({}),
 		node: {
 			crypto: 'empty',
 			net: 'empty',
@@ -92,8 +94,8 @@ module.exports = exports = {
 		},
 
 		resolve: {
-			root: [root, modules],
-			extensions: ['', '.async.jsx', '.jsx', '.js', '.css', '.scss', '.html']
+			modules: [root, modules],
+			extensions: ['.async.jsx', '.jsx', '.js', '.css', '.scss', '.html']
 		},
 
 		plugins: [
@@ -101,10 +103,10 @@ module.exports = exports = {
 		],
 
 		module: {
-			loaders: [
+			rules: [
 				{
 					test: /\.js(x?)$/i,
-					loader: 'babel',
+					loader: 'babel-loader',
 					exclude: /node_modules/,
 					query: {
 						plugins: [
@@ -117,9 +119,23 @@ module.exports = exports = {
 						]
 					}
 				},
-				{ test: /\.json$/, loader: 'json' },
-				{ test: /\.(html?|sass|s?css|ico|gif|png|jpg|eot|ttf|woff)$/, loader: 'null' }
+
+				{
+					test: /\.(html?|sass|s?css|ico|gif|png|jpg|svg|eot|ttf|woff)$/,
+					loader: 'null-loader'
+				}
 			]
 		}
 	}
 };
+
+if (webpack1) {
+	const {webpack: wp} = exports;
+	wp.resolve.extensions.unshift('');
+	wp.resolve.root = wp.resolve.modules;
+	delete wp.resolve.modules;
+
+	const loaders = wp.module.loaders = wp.module.rules;
+	delete wp.module.rules;
+	loaders.push({ test: /\.json$/, loader: 'json-loader' });
+}
