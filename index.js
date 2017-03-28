@@ -27,7 +27,7 @@ module.exports = exports = {
 		reporters: [
 			{ type: 'html', subdir: 'html' },
 			{ type: 'lcov', subdir: 'lcov' },
-			{ type: 'cobertura', subdir: '.', file: 'cobertura.xml' },
+			{ type: 'cobertura', subdir: '.', file: 'cobertura-coverage.xml' },
 			{ type: 'lcovonly', subdir: '.', file: 'report-lcovonly.txt' },
 			{ type: 'teamcity', subdir: '.', file: 'teamcity.txt' },
 			{ type: 'text', subdir: '.', file: 'text.txt' },
