@@ -2,7 +2,6 @@
 'use strict';
 var path = require('path');
 var webpack = require('webpack');
-var webpack1 = /^1/.test(require('webpack/package.json').version);
 
 var main = module.parent;
 var projectRoot = main ? path.dirname(main.filename) : __dirname;
@@ -52,8 +51,15 @@ module.exports = exports = {
 	port: 8090,
 	colors: true,
 	autoWatch: false,
-	browsers: ['PhantomJS'],
-	// browsers: ['Chrome'], //to use, you will need: `npm install karma-chrome-launcher`
+	browsers: ['ChromeHeadlessWithOptions'],
+	
+	customLaunchers: {
+		ChromeHeadlessWithOptions: {
+			base: 'ChromeHeadless',
+			chromeDataDir: path.resolve(__dirname, 'reports/.chrome'),
+			flags: ['--disable-web-security']
+		}
+	},
 
 	// other possible values: 'dots', 'progress', 'junit', 'html', 'coverage'
 	reporters: ['mocha'],
@@ -86,6 +92,7 @@ module.exports = exports = {
 	},
 
 	webpack: {
+		mode: 'development',
 		entry: () => ({}),
 		node: {
 			crypto: 'empty',
@@ -95,12 +102,8 @@ module.exports = exports = {
 
 		resolve: {
 			modules: [root, modules],
-			extensions: ['.async.jsx', '.jsx', '.js', '.css', '.scss', '.html']
+			extensions: ['.jsx', '.js', '.css', '.scss', '.html']
 		},
-
-		plugins: [
-			new webpack.DefinePlugin({SERVER: false})
-		],
 
 		module: {
 			rules: [
@@ -128,14 +131,3 @@ module.exports = exports = {
 		}
 	}
 };
-
-if (webpack1) {
-	const {webpack: wp} = exports;
-	wp.resolve.extensions.unshift('');
-	wp.resolve.root = wp.resolve.modules;
-	delete wp.resolve.modules;
-
-	const loaders = wp.module.loaders = wp.module.rules;
-	delete wp.module.rules;
-	loaders.push({ test: /\.json$/, loader: 'json-loader' });
-}
