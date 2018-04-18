@@ -1,5 +1,5 @@
 {
-  "name": "nti-unittesting-clientside",
+  "name": "@nti/unittesting-clientside",
   "version": "2.0.0",
   "description": "Common configuration for client side javascript unittesting",
   "main": "index.js",
