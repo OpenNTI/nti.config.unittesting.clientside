@@ -28,7 +28,7 @@
   "dependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
-    "babel-plugin-istanbul": "^4.1.5",
+    "babel-plugin-istanbul": "^5.0.0",
     "jasmine-core": "^3.1.0",
     "json-loader": "^0.5.4",
     "karma": "^2.0.0",
@@ -36,7 +36,7 @@
     "karma-coverage": "^1.1.1",
     "karma-html-reporter": "^0.2.7",
     "karma-jasmine": "^1.0.2",
-    "karma-junit-reporter": "^1.1.0",
+    "karma-junit-reporter": "^1.2.0",
     "karma-mocha-reporter": "^2.0.0",
     "karma-script-launcher": "^1.0.0",
     "karma-sourcemap-loader": "^0.3.0",
