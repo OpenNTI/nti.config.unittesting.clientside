@@ -110,7 +110,6 @@ module.exports = exports = {
 				{
 					test: /\.js(x?)$/i,
 					loader: 'babel-loader',
-					exclude: /node_modules/,
 					query: {
 						plugins: [
 							["istanbul", {
