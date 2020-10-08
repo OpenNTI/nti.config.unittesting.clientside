@@ -1,6 +1,6 @@
 {
   "name": "@nti/unittesting-clientside",
-  "version": "2.2.2",
+  "version": "2.3.0",
   "description": "Common configuration for client side javascript unittesting",
   "main": "index.js",
   "files": [
